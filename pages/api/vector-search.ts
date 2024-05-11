@@ -94,6 +94,9 @@ export default async function handler(req: NextRequest) {
       }
     )
 
+    console.log("pageSections result:" + pageSections)
+    console.log("pageSections size:" + pageSections.length)
+
     if (matchError) {
       throw new ApplicationError('Failed to match page sections', matchError)
     }
@@ -105,6 +108,8 @@ export default async function handler(req: NextRequest) {
     for (let i = 0; i < pageSections.length; i++) {
       const pageSection = pageSections[i]
       const content = pageSection.content
+      console.log("pageSections content:" + content)
+
       const encoded = tokenizer.encode(content)
       tokenCount += encoded.text.length
 
