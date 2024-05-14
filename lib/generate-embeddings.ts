@@ -319,6 +319,7 @@ async function generateEmbeddings() {
         .maybeSingle()
 
       if (fetchPageError) {
+        console.log("query nods_page error 1")
         throw fetchPageError
       }
 
@@ -341,6 +342,7 @@ async function generateEmbeddings() {
             .maybeSingle()
 
           if (fetchParentPageError) {
+            console.log("query nods_page error 2")
             throw fetchParentPageError
           }
 
@@ -350,6 +352,7 @@ async function generateEmbeddings() {
             .filter('id', 'eq', existingPage.id)
 
           if (updatePageError) {
+            console.log("update nods_page error 3")
             throw updatePageError
           }
         }
@@ -371,6 +374,7 @@ async function generateEmbeddings() {
           .filter('page_id', 'eq', existingPage.id)
 
         if (deletePageSectionError) {
+          console.log("query nods_page_section error 4")
           throw deletePageSectionError
         }
       }
@@ -383,6 +387,7 @@ async function generateEmbeddings() {
         .maybeSingle()
 
       if (fetchParentPageError) {
+        console.log("query nods_page error 5")
         throw fetchParentPageError
       }
 
@@ -406,6 +411,7 @@ async function generateEmbeddings() {
         .single()
 
       if (upsertPageError) {
+        console.log("query nods_page error 6")
         throw upsertPageError
       }
 
@@ -446,6 +452,7 @@ async function generateEmbeddings() {
             .single()
 
           if (insertPageSectionError) {
+            console.log("insert nods_page_section error 7")
             throw insertPageSectionError
           }
         } catch (err) {
@@ -468,6 +475,7 @@ async function generateEmbeddings() {
         .filter('id', 'eq', page.id)
 
       if (updatePageError) {
+        console.log("update nods_page error 8")
         throw updatePageError
       }
     } catch (err) {
